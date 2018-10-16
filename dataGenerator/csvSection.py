@@ -8,9 +8,9 @@ import io
 import csv
 
 from pymongo import MongoClient
-from bson.objectid import objectid
+from bson.objectid import ObjectId
 
-sys.stdout = io.TextIOWrapper(sts.stdout.buffer, encoding = 'utf-8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding = 'utf-8')
 
 conn = MongoClient()
 db = conn.Junyi
@@ -39,7 +39,7 @@ for data in allData:
   if(not quizId in quizSet):
     quizList[gra][sec].append(quizId)
     quizSet.add(quizId)
-  rec[gra][sec].append([data['quiz_id'], sec])
+  quizList[gra][sec].append([data['quiz_id'], sec])
 
 with open('sectionInfo_56.csv', 'w', newline = '') as csvfile:
   writer = csv.writer(csvfile)

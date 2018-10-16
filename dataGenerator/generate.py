@@ -15,7 +15,7 @@ random.seed(time.time())
 def initSectionInfo(input_file):
   sectionList = []
   sectionDict = {}
-  with open(input_file, newline = '') as csvfile:
+  with open(input_file, newline = '', encoding = 'utf-8') as csvfile:
     rows = csv.reader(csvfile)
     cnt = 0
     for row in rows:
@@ -27,7 +27,7 @@ def initSectionInfo(input_file):
 
 def initQuizInfo(input_file, sectionDict):
   quizList = [{} for _ in range(len(sectionDict))]
-  with open(input_file, newline = '') as csvfile:
+  with open(input_file, newline = '', encoding = 'utf-8') as csvfile:
     rows = csv.reader(csvfile)
     for row in rows:
       idx = sectionDict[row[1]]
@@ -65,7 +65,7 @@ if __name__ == '__main__':
   studentList = initStudentList(sectionNum = len(sectionList))
 
   for i in range(len(studentList)):
-    with open('./generatedData/quizHist'+str(i)+'.csv', 'w', ) as csvfile:
+    with open('./generatedData/quizHist'+str(i)+'.csv', 'w', encoding = 'utf-8') as csvfile:
       writer = csv.writer(csvfile)
 
       quiz = quizList[0][random.choice(list(quizList[0].keys()))]
