@@ -41,14 +41,14 @@ for data in allData:
     quizSet.add(quizId)
   quizList[gra][sec].append([data['quiz_id'], sec])
 
-with open('sectionInfo_56.csv', 'w', newline = '') as csvfile:
+with open('sectionInfo_56.csv', 'w', newline = '', encoding = 'utf-8') as csvfile:
   writer = csv.writer(csvfile)
 
   for gra in [5, 6]:
     for sec in sectionList[gra]:
       writer.writerow([sec])
 
-with open('quizInfo_56.csv', 'w', newline = '') as csvfile:
+with open('quizInfo_56.csv', 'w', newline = '', encoding = 'utf-8') as csvfile:
   writer = csv.writer(csvfile)
 
   for gra in [5, 6]:
